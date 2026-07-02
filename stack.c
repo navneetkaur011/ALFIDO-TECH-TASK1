@@ -4,27 +4,33 @@
 #define MAX_CAPACITY 5 // Defining a fixed maximum capacity for the stack
 
 // Structure to represent Stack
+// Space Complexity: O(N) where N is MAX_CAPACITY to store elements.
 struct Stack {
     int top;
     int arr[MAX_CAPACITY];
 };
 
 // Function to initialize stack
+// Time Complexity: O(1) - Constant time operation 
 void initialize(struct Stack* stack) {
     stack->top = -1; // -1 indicates stack is empty 
 }
 
 // Checking if the stack is full
+// Time Complexity: O(1) - Constant time check
 int isFull(struct Stack* stack) {
     return stack->top == MAX_CAPACITY - 1;
 }
 
 // Checking if the stack is empty
+// Time Complexity: O(1) - Constant time check
 int isEmpty(struct Stack* stack) {
     return stack->top == -1;
 }
 
 // Insert Operation
+// Time Complexity: O(1) - Inserting at the top takes constant time
+// Space Complexity: O(1) - Auxiliary space used is constant
 void push(struct Stack* stack, int value) {
     if (isFull(stack)) {
         printf("Stack Overflow! Cannot push %d\n", value);
@@ -36,6 +42,8 @@ void push(struct Stack* stack, int value) {
 }
 
 // Delete Operation
+// Time Complexity: O(1) - Removing from the top takes constant time
+// Space Complexity: O(1) - Auxiliary space used is constant
 int pop(struct Stack* stack) {
     if (isEmpty(stack)) {
         printf("Stack Underflow! Cannot pop from an empty stack.\n");
@@ -47,6 +55,8 @@ int pop(struct Stack* stack) {
 }
 
 // Search Operation
+// Time Complexity: O(N) - In the worst case, we might traverse all N elements currently in the stack
+// Space Complexity: O(1) - Constant auxiliary space
 int search(struct Stack* stack, int target) {
     if (isEmpty(stack)) {
         return -1;
@@ -61,6 +71,7 @@ int search(struct Stack* stack, int target) {
 }
 
 // Function to display the current state of the stack
+// Time Complexity: O(N) - Must iterate through all elements to display them
 void display(struct Stack* stack) {
     if (isEmpty(stack)) {
         printf("Stack is empty.\n");
