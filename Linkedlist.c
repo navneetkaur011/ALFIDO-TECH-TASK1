@@ -2,12 +2,15 @@
 #include <stdlib.h>
 
 // Defining the structure for a single node
+// Space Complexity: O(1) auxiliary per node allocation
 struct Node {
     int data;
     struct Node* next;
 };
 
 // Function to insert a new node at the very beginning
+// Time Complexity: O(1) - Constant time operation as it inserts directly at head
+// Space Complexity: O(1) - Allocates a single node
 void insertHead(struct Node** head_ref, int new_data) {
     // Dynamically allocate memory for the new node
     struct Node* new_node = malloc(sizeof(struct Node));
@@ -25,6 +28,8 @@ void insertHead(struct Node** head_ref, int new_data) {
 }
 
 // Function to search for a specific value and return its position (1-indexed)
+// Time Complexity: O(N) - Worst case requires traversing all N nodes in the list
+// Space Complexity: O(1) - Auxiliary space is constant
 int searchList(struct Node* head, int key) {
     struct Node* current = head;
     int position = 1;
@@ -40,6 +45,8 @@ int searchList(struct Node* head, int key) {
 }
 
 // Function to delete the first occurrence of a specific key
+// Time Complexity: O(N) - Worst case requires walking the entire list to locate the element
+// Space Complexity: O(1) - Modifies pointers in constant auxiliary space
 void deleteNode(struct Node** head_ref, int key) {
     struct Node* temp = *head_ref;
     struct Node* prev = NULL;
@@ -71,6 +78,8 @@ void deleteNode(struct Node** head_ref, int key) {
 }
 
 // Function to traverse and print the whole list
+// Time Complexity: O(N) - Traverses through all N nodes to display them
+// Space Complexity: O(1) - Constant auxiliary space
 void printList(struct Node* node) {
     printf("Current List: ");
     while (node != NULL) {
